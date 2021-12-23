@@ -14,6 +14,8 @@ import { Switch } from "react-router-dom";
 import authenticationPresenter from "@modules/authentication/presenter";
 import UserEntity from "@modules/user/entity";
 import config from "@config/index";
+import DashboardLayout from "@view/Teacher/DashboardLayout";
+import layout from "@layout/layout";
 
 interface IPrivatePageSelector {
   token?: string;
@@ -48,7 +50,7 @@ const PrivatePage: React.FC = () => {
   //   return  <Switch></Switch>
   // }
   return (
-    <Switch>{ShowRouter({ routers: privateRouter, MasterLayout: DefaultLayout })}</Switch>
+    <Switch>{ShowRouter({ routers: privateRouter, MasterLayout: DashboardLayout })}</Switch>
   );
 };
 export default PrivatePage;

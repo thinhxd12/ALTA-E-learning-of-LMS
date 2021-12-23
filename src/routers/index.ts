@@ -2,7 +2,7 @@ import Loading from "../shared/components/Loading";
 import LoadableRouter from "./loadableRouter";
 import {
   privatePage,
-  publicPage
+  publicPage,
 } from "./mainRouter";
 
 export const privateRouter = new LoadableRouter({

@@ -1,17 +1,17 @@
+
 import { Form, Input, Checkbox } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import React, { useState, useMemo } from "react";
 import { NavLink, useHistory, useLocation, useParams } from "react-router-dom";
 import { useAsync } from "@hook/useAsync";
 import authenticationPresenter from "@modules/authentication/presenter";
-import NavLinkBottom from "./components/NavLinkBottom";
 import { useAltaIntl } from "@shared/hook/useTranslate";
 
 // import * as UserLogin from '@shared/assets/icon/index'
 // import userLogin from "@shared/assets/icon"
 
 const { login } = authenticationPresenter;
-const Login = () => {
+const Dashboard = () => {
   const history = useHistory();
   const location = useLocation();
   const [loginByAccount] = useAsync(login);
@@ -65,66 +65,13 @@ const Login = () => {
   return (
     <>
       <div className="main-form">
-        <div className="content-form">
-          <h3 className="main-title">{formatMessage("login.page.title")}</h3>
-          <Form
-            name="loginByAccount"
-            layout="vertical"
-            onFinish={onSubmitAccount}
-            onFinishFailed={onFinishFailed}
-            requiredMark={false}
-            initialValues={{
-              remember: false,
-            }}
-          >
-            <Form.Item
-              label={formatMessage("login.page.userName")}
-              name="accountUserName"
-              rules={[
-                {
-                  required: true,
-                  message: `${formatMessage(
-                    "login.page.form.required"
-                  )} ${formatMessage("login.page.userName")}`,
-                },
-              ]}
-            >
-              <Input prefix={userIcon} />
-
-            </Form.Item>
-
-            <Form.Item
-              label={formatMessage("login.page.password")}
-              name="accountPassword"
-              rules={[
-                {
-                  required: true,
-                  message: `${formatMessage(
-                    "login.page.form.required"
-                  )} ${formatMessage("login.page.password")}`,
-                },
-              ]}
-            >
-              <Input.Password prefix={passwordIcon} />
-            </Form.Item>
-
-            <div className="text-right">
-              <NavLink to="/forgotpass" className="forgotPassword">{formatMessage("login.page.forgot.password")}</NavLink>
-            </div>
-
-            <div>{renderError}</div>
-
-            <Form.Item>
-              <div className="button-center__box">
-                <button type="submit" className="login-button">
-                  {formatMessage("login.page.button.account")}
-                </button>
-              </div>
-            </Form.Item>
-          </Form>
-        </div>
+        <h1>Dashboard</h1>
+        <h1>Dashboard</h1>
+        <h1>Dashboard</h1>
+        <h1>Dashboard</h1>
+        <h1>Dashboard</h1>
       </div>
     </>
   );
 };
-export default Login;
+export default Dashboard;

@@ -1,5 +1,33 @@
 @use "variable";
 
+// .ant-btn,
+// button.ant-btn.normal-button,
+// .ant-modal-confirm-btns button.ant-btn,
+// button.ant-btn.cancel-button,
+// .normal-button,
+// .cancel-button {
+//   min-width: 15rem;
+//   min-height: 4.8rem;
+//   border-radius: 0.8rem;
+//   font-weight: bold;
+//   font-size: 1.6rem;
+//   padding: 0;
+//   transition: All 0.3s;
+//   border: 1px solid #237bd3;
+
+//   background: #237bd3;
+//   color: white;
+
+//   &:hover {
+//     background: white;
+//     color: #237bd3;
+//   }
+
+//   &:focus {
+//     outline: none;
+//   }
+// }
+
 .ant-btn,
 button.ant-btn.normal-button,
 .ant-modal-confirm-btns button.ant-btn,
@@ -10,17 +38,17 @@ button.ant-btn.cancel-button,
   min-height: 4.8rem;
   border-radius: 0.8rem;
   font-weight: bold;
-  font-size: 1.6rem;
-  padding: 0;
+  font-size: 18px;
+  padding: 14.5px 24px;
   transition: All 0.3s;
-  border: 1px solid #237bd3;
-
-  background: #237bd3;
+  border: none;
+  cursor: pointer;
+  background: $color__orange--4;
   color: white;
 
   &:hover {
-    background: white;
-    color: #237bd3;
+    background: $color__orange--4;
+    color: white;
   }
 
   &:focus {
@@ -28,10 +56,45 @@ button.ant-btn.cancel-button,
   }
 }
 
-.delete-button {
-  border: 1px solid #EC3740;
+.login-button {
+  min-width: 100%;
+  height: 5.2rem;
+  border-radius: 0.8rem;
+  font-weight: bold;
+  font-size: 18px;
+  transition: All 0.3s;
+  border: none;
+  cursor: pointer;
+  background: $color__gradient;
   color: white;
-  color: #EC3740
+  display: inline-block;
+  text-align: center;
+  &:focus {
+    outline: none;
+  }
+}
+
+.forgot-password-button {
+  min-width: 100%;
+  height: 5.2rem;
+  border-radius: 0.8rem;
+  font-weight: bold;
+  font-size: 18px;
+  transition: All 0.3s;
+  border: none;
+  cursor: pointer;
+  background: #C9C4C0;
+  color: white;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+.delete-button {
+  border: 1px solid #ec3740;
+  color: white;
+  color: #ec3740;
 }
 
 button.ant-btn.disabled-button {
@@ -77,12 +140,12 @@ button.ant-btn.ant-btn-dangerous,
   text-align: center;
 }
 
+
 .ant-btn-primary {
-  background: #237bd3;
-  color: white;
+  background: $color__orange--4;
 }
 
-//button in form 
+//button in form
 // button.ant-btn.modal-button {
 //   width: 15rem;
 // }

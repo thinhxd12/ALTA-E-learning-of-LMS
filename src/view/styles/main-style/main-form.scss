@@ -1,11 +1,14 @@
 @use "variable";
 
 .main-form {
-  font-size: $fs-2;
-  line-height: 2.4rem;
-  text-align: left;
+  // font-size: 1.125rem;
+  // line-height: 2.4rem;
+  // text-align: left;
+  font-size: 16px;
+  font-family: "Mulish";
+  position: relative;
 
-  .ant-picker{
+  .ant-picker {
     border-radius: 6px;
     padding: 0.9rem 1.6rem;
     width: 100%;
@@ -15,7 +18,7 @@
     color: #ff4d4f;
     text-transform: lowercase;
     display: inline-block;
-  
+
     &::first-letter {
       text-transform: uppercase;
     }
@@ -27,7 +30,7 @@
 
   .form-note {
     font-size: 1.2rem;
-    color: #484E5480;
+    color: #484e5480;
 
     &::before {
       display: inline-block;
@@ -36,14 +39,17 @@
       font-size: 1.4rem;
       font-family: SimSun, sans-serif;
       line-height: 1;
-      content: '*';
+      content: "*";
     }
   }
 
   .ant-form-item {
-    margin-bottom: 1.6rem;
+    margin: 2.4rem 0 0;
   }
 
+  .ant-form-item:last-child {
+    margin: 0;
+  }
 
   .ant-form-item-label {
     text-align: left;
@@ -51,17 +57,18 @@
 
   .main-title {
     text-align: center;
-    color: #0a4874;
-    font-size: 4.8rem;
-    font-weight: 500;
-    margin-bottom: 4.8rem;
+    @include style-text(600, 4.8rem, 5.6rem, $color__orange--7);
 
+    letter-spacing: 0.015em;
+    margin-bottom: 80px;
   }
 
   .content-form {
-    width: 41rem;
-    margin: 0 auto;
-
+    width: 43rem;
+    height: 44.5rem;
+    position: absolute;
+    top: 26rem;
+    right: 21rem;
   }
 
   .ant-input-number-input {
@@ -81,20 +88,24 @@
   .ant-input,
   .ant-input-affix-wrapper {
     font-size: 1.4rem;
-    border-radius: 6px;
-    padding: 0.9rem 1.6rem;
+    border-radius: 8px;
     color: $color--ant-input;
-    background-color: $color--background;
+    background-color: #f2f2f2;
+    padding: 8px 16px;
+    border: none;
   }
 
-  .ant-picker-large{
+  .ant-input-affix-wrapper:focus{
+    border: 1px solid rgba(55, 56, 57, 0.5);
+  }
+
+  .ant-picker-large {
     width: 100%;
   }
 
-  .ant-form-item-label>label {
-    color: #1d519e;
-    font-weight: $font-weight-bold;
-    font-size: $fs-2;
+  .ant-form-item-label > label {
+    @include style-text(400, 1.8rem, 2.1rem, $color__orange--7);
+    letter-spacing: 1.5%;
   }
 
   .ant-input-affix-wrapper .ant-input-password-icon {
@@ -138,8 +149,6 @@
     }
   }
 
-  
-
   .ant-select:not(.ant-select-customize-input) .ant-select-selector {
     border: 1px solid #c8c8c8;
     box-sizing: border-box;
@@ -148,7 +157,7 @@
   }
 
   .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-    height: 4.4rem
+    height: 4.4rem;
   }
 
   .ant-select-single .ant-select-selector .ant-select-selection-item,
@@ -157,31 +166,46 @@
   }
 
   .ant-select-arrow {
-    color: #2F67BA;
-    svg{
+    color: #2f67ba;
+    svg {
       width: 1.2rem;
       height: 1.2rem;
     }
   }
 
-  .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional) {
+  .ant-form-item-label
+    > label.ant-form-item-required:not(.ant-form-item-required-mark-optional) {
     &::before {
       content: none;
       line-height: 0;
     }
   }
 
+  .forgotPassword {
+    color: $color__orange--4;
+    font-family: "Source Sans Pro";
+    font-size: 16px;
+    line-height: 16px;
+    display: inline-block;
+    margin-bottom: 3rem;
+  }
+  .ant-input-affix-wrapper > input.ant-input {
+    font-family: "Source Sans Pro";
+    @include style-text(400, 16px, 130%, $color__orange--7);
+    line-height: 16px;
+  
+  }
 }
 
 label.ant-form-item-required:not(.ant-form-item-required-mark-optional) {
   &::after {
-    display: inline-block;
-    margin-right: .4rem;
+    display: none;
+    margin-right: 0.4rem;
     color: #ff4d4f;
-    font-size: 1.4rem;
+    font-size: 1.125rem;
     font-family: SimSun, sans-serif;
     line-height: 1;
-    content: '*';
+    content: "*";
   }
 }
 

@@ -19,6 +19,8 @@ div#root {
         overflow: visible;
     }
 
+    
+
     .language__box {
         position: absolute;
         right: 24px;
@@ -41,6 +43,7 @@ div#root {
     .main__box {
         width: 577px;
         margin: 0 auto;
+       
 
         @include respond(sm-screen) {
             width: 100%;
@@ -117,5 +120,13 @@ div#root {
             height: 100%;
 
         }
+    }
+
+    .banner__img--1{
+        position: absolute;
+        width: 15rem;
+        height: 10rem;
+        top: 3rem;
+        right: 6.5rem;
     }
 }

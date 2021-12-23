@@ -16,5 +16,20 @@ export const routerLogin: IRouter = {
       loader: import("./ForgotPass"),
       exact: true,
     },
+    {
+      path: "/resetpass",
+      loader: import("./ResetPass"),
+      exact: true,
+    },
+    {
+      path: "/updatepass",
+      loader: import("./UpdatePass"),
+      exact: true,
+    },
+    {
+      path: "/loginotp",
+      loader: import("./LoginByOTP"),
+      exact: true,
+    },
   ],
 };

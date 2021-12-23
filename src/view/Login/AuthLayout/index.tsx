@@ -1,31 +1,19 @@
-import { Col, Row } from "antd";
+import { Button, Col, Row } from "antd";
 import React, { PropsWithChildren } from "react";
 import { useLocation, withRouter } from "react-router-dom";
-import { banner, logo } from "@shared/assets/images";
+import { banner, logo, loginBackground, logo1 } from "@shared/assets/images";
 import ChangeLanguage from "@shared/components/ChangeLanguage";
+import { url } from "inspector";
+
 
 interface IDefaultLayoutProps {
 }
 
-const AuthLayout:React.FC<PropsWithChildren<IDefaultLayoutProps>> = (props) => {
+const AuthLayout: React.FC<PropsWithChildren<IDefaultLayoutProps>> = (props) => {
   return (
-    <div className="auth-page">
-      <Row>
-        <Col xs={24} sm={24} md={24} lg={14} xl={14}>
-          <div className="language__box">
-            <ChangeLanguage className="label-language-login" />
-          </div>
-          <div className="main__box">
-            <div className="logo__box">
-              <img src={logo} alt="logo" />
-            </div>
-            {props.children}
-          </div>
-        </Col>
-        <Col xs={0} sm={0} md={0} lg={10} xl={10}>
-          <img src={banner} alt="banner" className="banner__img" />
-        </Col>
-      </Row>
+    <div className="auth-page" style={{ background: `url(${loginBackground})`, backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat', width: '100vw', height: '100vh' }}>
+      <img src={logo1} alt="logo1" className="banner__img--1" />
+      {props.children}
     </div>
   );
 };

@@ -6,17 +6,20 @@ import { routerLogin, routerMainPublicPage } from "@view/Login/routerLogin";
 import { AppstoreOutlined } from "@ant-design/icons";
 import { IRouter } from "./interface";
 import {routerHome} from '@view/Home/router'
+import { routerMainTeacherPage, routerTeacher } from "@view/Teacher/routerTeacher";
 
 export const privatePage: IRouter[] = [
-  routerHome,
+  routerMainTeacherPage,
+  routerTeacher,
+  routerPageError,
 ];
 
 export const publicPage: IRouter[] = [
   routerMainPublicPage,
   routerLogin,
   {
-    path: "/login/otp",
-    loader: import("@view/Login/LoginByOTP"),
+    path: "/login",
+    loader: import("@view/Login"),
     exact: true,
   },
   {
@@ -31,3 +34,6 @@ export const publicPage: IRouter[] = [
   },
   routerPageError,
 ];
+
+
+

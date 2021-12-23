@@ -1,6 +1,6 @@
 export default {
   "login.page.title": "Đăng nhập",
-  "login.page.userName": "Tên tài khoản",
+  "login.page.userName": "Tên đăng nhập",
   "login.page.password": "Mật khẩu",
   "login.page.remember": "Ghi nhớ đăng nhập",
   "login.page.mobile": "Số điện thoại",
