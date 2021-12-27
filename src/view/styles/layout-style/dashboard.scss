@@ -1,0 +1,83 @@
+@use "variable";
+
+.dashboard-page {
+  .dashboard__sider {
+    width: 11.2rem;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(359.43deg, #ff5400 2.1%, #f17f21 98.52%);
+    box-shadow: 4px 4px 15px rgba(122, 176, 225, 0.25);
+    text-align: center;
+
+    .sider__logo {
+      margin-top: 5.8rem;
+    }
+    .dashboard__sider__content {
+      margin-top: 8rem;
+      .sider__item {
+        width: 8rem;
+        height: 8rem;
+        display: block;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .sider__item__active {
+        background: rgba(255, 249, 244, 0.5);
+        border-radius: 16px;
+      }
+    }
+  }
+  .dashboard__submenu {
+    width: 28.5rem;
+    height: 100vh;
+    background: $color__white;
+    box-shadow: 4px 4px 10px rgba(133, 178, 220, 0.25);
+    padding-top: 17rem;
+    .submenu__item {
+      @include style-text(600, 1.8rem, 2.1rem, $color__orange--7);
+      letter-spacing: 0.015em;
+      margin-left: 3.5rem;
+      margin-top: 4rem;
+      svg.icon__color {
+        width: 2rem;
+        height: 2rem;
+        display: inline-block;
+        margin-right: 1.2rem;
+
+        path {
+          fill: $color__orange--7;
+        }
+      }
+      
+    }
+    .submenu__item__active {
+      @include style-text(600, 1.8rem, 2.1rem, $color__orange--4);
+      letter-spacing: 0.015em;
+      svg.icon__color path {
+        fill: $color__orange--4;
+      }
+      position: relative;
+      &::after{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: .8rem;
+        height: 5.6rem;
+        border-radius: 11px;
+      }
+    }
+    .submenu__item__small {
+      @include style-text(400, 1.6rem, 130%, $color__orange--7);
+      font-family: "Source Sans Pro";
+      margin-left: 6.6rem;
+      margin-top: 2.7rem;
+    }
+    .submenu__item__small__active {
+      @include style-text(700, 1.6rem, 2rem, $color__orange--7);
+      font-family: "Source Sans Pro";
+      letter-spacing: 0.015em;
+    }
+  }
+}

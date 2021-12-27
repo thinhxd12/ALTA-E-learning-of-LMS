@@ -85,7 +85,7 @@
   ],
   "include": [
     "./src/**/*",
-    "./custom.d.ts"
+    "./custom.d.ts","src/components", "src/custom.d.ts"
   ],
   "lib": [
     "es2018",

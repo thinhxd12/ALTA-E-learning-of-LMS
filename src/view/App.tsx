@@ -69,8 +69,8 @@ const MainView = React.memo(({ statusLogin }: { statusLogin: boolean }) => {
     </Suspense>
   ) : (
     <Suspense fallback={<></>}>
-      <PublicPage />
-      {/* <PrivatePage/> */}
+      {/* <PublicPage /> */}
+      <PrivatePage/>
     </Suspense>
   )}</>
 })

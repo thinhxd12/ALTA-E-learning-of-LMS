@@ -6,6 +6,8 @@ import { useAsync } from "@hook/useAsync";
 import authenticationPresenter from "@modules/authentication/presenter";
 import NavLinkBottom from "./components/NavLinkBottom";
 import { useAltaIntl } from "@shared/hook/useTranslate";
+import {ShieldKeyholeIcon,UserIcon } from "@assets/icon";
+import { icons } from "antd/lib/image/PreviewGroup";
 
 // import * as UserLogin from '@shared/assets/icon/index'
 // import userLogin from "@shared/assets/icon"
@@ -89,7 +91,7 @@ const Login = () => {
                 },
               ]}
             >
-              <Input prefix={userIcon} />
+              <Input prefix={<img src={UserIcon}/>} />
 
             </Form.Item>
 
@@ -105,7 +107,7 @@ const Login = () => {
                 },
               ]}
             >
-              <Input.Password prefix={passwordIcon} />
+              <Input.Password prefix={<img src={ShieldKeyholeIcon}/>} />
             </Form.Item>
 
             <div className="text-right">

@@ -62,7 +62,7 @@ const SiderComponent: React.FC<{ className: string, setClassName: (className: st
       </div>
       <div className="mask" style={{ width }}>
         <div className="logo">
-          <img src={logo} alt="logo" />
+          {/* <img src={logo} alt="logo" /> */}
         </div>
         <div className="menu">
           <RenderMenu listNav={privatePage} location={location.pathname} />

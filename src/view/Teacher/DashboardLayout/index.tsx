@@ -1,67 +1,82 @@
-import React, { PropsWithChildren, useState } from "react";
-import { Layout, Menu } from 'antd';
-import {
-    MenuUnfoldOutlined,
-    MenuFoldOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-} from '@ant-design/icons';
-import { logo1 } from "@assets/images";
-const { Header, Sider, Content } = Layout;
+import React, { PropsWithChildren } from "react";
+
+import { NavLink } from "react-router-dom";
+import { BellIcon, BookOpenIcon, CalendarIcon, CommentQuestionIcon, EyeIcon, FileEditIcon, LogoIcon } from "@assets/icon/dashboardIcon";
+
 
 
 
 interface IDefaultLayoutProps {
 }
 
+const dashboardArr = [
+    {
+        menuItem: 'Tổng quan', link: '/overview', icon: <EyeIcon fill="white" className="icon__color" />,
+        submenuItem: []
+    },
+    {
+        menuItem: 'Quản lý lớp học', link: '/classmanagement', icon: <BookOpenIcon fill="white" className="icon__color" />,
+        submenuItem: [] = [
+            { name: "Danh sách lớp học", link: '/classmanagement/classlist' },
+            { name: "Thêm buổi học mới", link: '/classmanagement/addclass' },
+            { name: "Tham gia vào lớp học", link: '/classmanagement/joinclass' }
+        ]
+    },
+    {
+        menuItem: 'Bài kiểm tra', link: '/test', icon: <FileEditIcon fill="white" className="icon__color" />,
+        submenuItem: [
+            { name: 'Danh sách bài kiểm tra', link: '/test/testlist' },
+            { name: 'Thêm bài kiểm tra mới', link: '/test/addtest' },
+            { name: 'Nhập điểm', link: '/test/addgrade' },
+            { name: 'Bảng điểm', link: '/test/record' }]
+    },
+    {
+        menuItem: 'Lịch thi', link: '/schedule', icon: <CalendarIcon fill="white" className="icon__color" />,
+        submenuItem: []
+    },
+    {
+        menuItem: 'Thông báo', link: '/notification', icon: <BellIcon fill="white" className="icon__color" />,
+        submenuItem: []
+    },
+    {
+        menuItem: 'Trợ giúp', link: '/help', icon: <CommentQuestionIcon fill="white" className="icon__color" />,
+        submenuItem: []
+    },
+]
+
 
 
 const DashboardLayout: React.FC<PropsWithChildren<IDefaultLayoutProps>> = (props) => {
-    const [state, setState] = useState({
-        collapsed: true,
-    })
-    const toggle = () => {
-        setState({
-            collapsed: !state.collapsed,
-        });
-    };
+  
+
+
     return (
-        <div className="dashboard__layout">
-            <Layout>
-                <Sider trigger={null} collapsible collapsed={state.collapsed} style={{width:'112px'}}>
-                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                        <Menu.Item key="1" icon={<UserOutlined />}>
-                            nav 1
-                        </Menu.Item>
-                        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                            nav 2
-                        </Menu.Item>
-                        <Menu.Item key="3" icon={<UploadOutlined />}>
-                            nav 3
-                        </Menu.Item>
-                    </Menu>
-                </Sider>
-                <Layout className="site-layout">
-                    <Header className="site-layout-background" style={{ padding: 0 }}>
-                        {React.createElement(state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-                            className: 'trigger',
-                            onClick: toggle,
+        <div className="dashboard-page d-flex">
+            <div className="dashboard__sider">
+                <LogoIcon fill="white"  className="sider__logo"/>
+                <div className="d-flex flex-column align-items-center dashboard__sider__content">
+                    {dashboardArr.map((item, index) => <NavLink key={index} to={item.link} className="sider__item" activeClassName="sider__item__active">{item.icon}</NavLink>)}
+                </div>
+            </div>
+            <div className="dashboard__submenu d-flex flex-column">
+                {dashboardArr.map((item, index) => {
+                    if (item.submenuItem.length == 0) {
+                        return <NavLink to={item.link} className="submenu__item" activeClassName="submenu__item__active">{item.icon}{item.menuItem}</NavLink>
+                    }
+                    else return <div className="d-flex flex-column">
+                        <NavLink to={item.link} className="submenu__item" activeClassName="submenu__item__active">{item.icon}{item.menuItem}</NavLink>
+                        {item.submenuItem.map((item, index) => {
+                            return <NavLink to={item.link} className="submenu__item__small" activeClassName="submenu__item__small__active">{item.name}</NavLink>
                         })}
-                    </Header>
-                    <Content
-                        className="site-layout-background"
-                        style={{
-                            margin: '24px 16px',
-                            padding: 24,
-                            minHeight: '100vh',
-                        }}
-                    >
-                        {props.children}
-                    </Content>
-                </Layout>
-            </Layout>
+                    </div>
+                })}
+            </div>
+            <div>
+                {props.children}
+            </div>
         </div>
+
+
     );
 };
 
