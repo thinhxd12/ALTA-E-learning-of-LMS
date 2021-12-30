@@ -1,0 +1,61 @@
+@use "variable";
+
+.overview {
+  padding: 70px 52px;
+  .overview__main__title {
+    @include style-text(700, 4.8rem, 5.6rem, $color__orange--7);
+  }
+  .overview__title {
+    @include style-text(700, 2.8rem, 3.2rem, $color__orange--7);
+  }
+}
+
+.overview__stats {
+  .overview__item {
+    border-radius: 16px;
+    display: block;
+    width: 272px;
+    height: 120px;
+    margin-right: 32px;
+    margin-bottom: 27px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    .ellipse {
+      content: "";
+      display: block;
+      height: 104px;
+      width: 104px;
+      border-radius: 50%;
+      background: #ffffff;
+      opacity: 0.1;
+      position: absolute;
+    }
+    .ellipse1 {
+      @extend .ellipse;
+      top: -37px;
+      left: -69px;
+    }
+
+    .ellipse2 {
+      @extend .ellipse;
+      top: 76px;
+      left: 191px;
+    }
+    .ellipse3 {
+      @extend .ellipse;
+      width: 152px;
+      height: 152px;
+      top: 41px;
+      left: 219px;
+    }
+    h4 {
+      @include style-text(700, 1.8rem, 2.1rem, $color__white);
+      margin: 2rem 0 0.3rem;
+    }
+    p {
+      @include style-text(700, 4.8rem, 5.6rem, $color__white);
+      letter-spacing: 0.015em;
+    }
+  }
+}

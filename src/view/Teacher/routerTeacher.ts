@@ -2,19 +2,18 @@ import { IRouter } from "@routers/interface";
 
 export const routerMainTeacherPage = {
   path: "/",
-  loader: import("./index"),
+  loader: import("./Overview"),
   exact: true,
 };
 
 export const routerTeacher: IRouter = {
-  path: "/teacher",
-  loader: import("./index"),
+  path: "/",
   exact: true,
   masterLayout:true,
   routes: [
     {
-      path: "/forgotpass",
-      loader: import("./DashboardLayout"),
+      path: "/overview",
+      loader: import("./Overview"),
       exact: true,
     },
 

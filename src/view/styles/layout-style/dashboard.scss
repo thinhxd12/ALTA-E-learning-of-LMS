@@ -73,11 +73,11 @@
       font-family: "Source Sans Pro";
       margin-left: 6.6rem;
       margin-top: 2.7rem;
-    }
-    .submenu__item__small__active {
-      @include style-text(700, 1.6rem, 2rem, $color__orange--7);
-      font-family: "Source Sans Pro";
       letter-spacing: 0.015em;
+      &:hover{
+        @include style-text(700, 1.6rem, 2rem, $color__orange--7);
+
+      }
     }
   }
 }

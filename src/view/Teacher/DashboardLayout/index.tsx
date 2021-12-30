@@ -1,12 +1,11 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useEffect, useRef, useState } from "react";
 
 import { NavLink } from "react-router-dom";
 import { BellIcon, BookOpenIcon, CalendarIcon, CommentQuestionIcon, EyeIcon, FileEditIcon, LogoIcon } from "@assets/icon/dashboardIcon";
 
 
-
-
 interface IDefaultLayoutProps {
+    onClick: any,
 }
 
 const dashboardArr = [
@@ -47,35 +46,50 @@ const dashboardArr = [
 
 
 const DashboardLayout: React.FC<PropsWithChildren<IDefaultLayoutProps>> = (props) => {
-  
 
+    const [showSubmenu, setShowSubmenu] = useState(false);
+    const expand=()=> {
+        setShowSubmenu(true);
+    }
+
+    const close=()=> {
+        setShowSubmenu(false);
+    }
 
     return (
-        <div className="dashboard-page d-flex">
+        <div className="dashboard-page d-flex" onBlur={close} >
             <div className="dashboard__sider">
-                <LogoIcon fill="white"  className="sider__logo"/>
+                <LogoIcon fill="white" className="sider__logo" />
                 <div className="d-flex flex-column align-items-center dashboard__sider__content">
-                    {dashboardArr.map((item, index) => <NavLink key={index} to={item.link} className="sider__item" activeClassName="sider__item__active">{item.icon}</NavLink>)}
+                    {dashboardArr.map((item, index) => <NavLink key={index} to={item.link} className="sider__item" activeClassName="sider__item__active"
+                        onClick={expand}>
+                        {item.icon}
+                    </NavLink>)}
                 </div>
             </div>
-            <div className="dashboard__submenu d-flex flex-column">
+            {!showSubmenu ? null : <div className="dashboard__submenu d-flex flex-column">
                 {dashboardArr.map((item, index) => {
-                    if (item.submenuItem.length == 0) {
-                        return <NavLink to={item.link} className="submenu__item" activeClassName="submenu__item__active">{item.icon}{item.menuItem}</NavLink>
-                    }
-                    else return <div className="d-flex flex-column">
-                        <NavLink to={item.link} className="submenu__item" activeClassName="submenu__item__active">{item.icon}{item.menuItem}</NavLink>
+                    return <div className="d-flex flex-column" key={index}>
+                        <NavLink to={item.link} className="submenu__item" activeClassName="submenu__item__active"
+                            onClick={close}
+                        >
+                            {item.icon}{item.menuItem}
+                        </NavLink>
                         {item.submenuItem.map((item, index) => {
-                            return <NavLink to={item.link} className="submenu__item__small" activeClassName="submenu__item__small__active">{item.name}</NavLink>
+                            return <NavLink to={item.link} className="submenu__item__small" activeClassName="submenu__item__small__active"
+                                onClick={close}
+                            >
+                                {item.name}
+                            </NavLink>
                         })}
                     </div>
                 })}
-            </div>
-            <div>
+            </div>}
+
+            <div className="w-100">
                 {props.children}
             </div>
         </div>
-
 
     );
 };
